@@ -1,0 +1,30 @@
+.App {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+.titleAndContent{
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  min-width: 260px;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.title{
+  height: 64px;
+  background: pink;
+}
+ .content {
+   flex: 1;
+   background: yellow;
+   overflow-y: auto;
+}
+
+.contentChildren {
+  height: 5000px;
+  background: blue;
+}

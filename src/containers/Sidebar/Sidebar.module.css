@@ -3,4 +3,10 @@
   background: green;
   min-width: 260px;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.linkTitle {
+  text-align: center;
 }

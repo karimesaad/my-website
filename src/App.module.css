@@ -3,8 +3,6 @@
   flex-wrap: wrap;
 }
 
-
-
 .titleAndContent{
   flex: 3;
   display: flex;
@@ -24,7 +22,22 @@
    overflow-y: auto;
 }
 
-.contentChildren {
-  height: 5000px;
+.about {
+  height: 500px;
+  background: purple;
+}
+
+.education {
+  height: 330px;
   background: blue;
+}
+
+.experience {
+  height: 830px;
+  background: black;
+}
+
+.more {
+  height: 430px;
+  background: brown;
 }

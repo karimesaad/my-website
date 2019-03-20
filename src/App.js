@@ -11,32 +11,44 @@ import Sidebar from './containers/Sidebar';
 const Title = (props) => {
   return (
     <div className={styles.title}>
-    {props.children}
+    {props.name}
     </div>)
 }
 
-const TitleAndContent = (props) => {
+const TitleAndContent = ({match}) => {
   return (
     <div className={styles.titleAndContent}>
-      {props.children}
+      <Title name={match.params.id}></Title>
+      <Content component={match.params.id}></Content>
     </div>
   )
 }
 
 const Content = (props) => {
+  let component;
+  switch(props.component){
+    case 'about':
+      component = <About></About>
+    break;
+    case 'experience':
+      component = <Experience></Experience>
+    break;
+    case 'education':
+      component = <Education></Education>
+    break;
+    case 'more':
+      component = <More></More>
+    break;
+  }
   return (
     <div className={styles.content}>
-      {props.children}
+      {component}
     </div>
   )
 }
 
 const About = (props) => {
-  return (
-    <div className={styles.about}>
-      <Title>{props.name}</Title>
-    </div>
-  )
+  return (<div className={styles.about}></div>)
 }
 
 const Education = (props) => {
@@ -58,30 +70,10 @@ class App extends Component {
       <Router>
         <div className={styles.App}>
           <Sidebar></Sidebar>
-          <TitleAndContent>
-            <Title></Title>
-            <Content>
-              <Route
-                path="/about"
-                render={props => <About {...props} name='About' />}
-              />
-              <Route
-                path="/education"
-                render={props => <About {...props} name='Education' />}
-              />
-              <Route
-                path="/experience"
-                render={props => <About {...props} name='Experience' />}
-              />
-              <Route
-                path="/more"
-                render={props => <About {...props} name='More About Me' />}
-              />
-              <Route path="/education" component={Education} />
-              <Route path="/experience" component={Experience} />
-              <Route path="/more" component={More} />
-            </Content>
-          </TitleAndContent>
+          <Route
+            path="/:id"
+            render={props => <TitleAndContent {...props} />}
+          />
         </div>
       </Router>
     );

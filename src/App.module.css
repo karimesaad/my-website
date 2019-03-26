@@ -14,10 +14,10 @@
 
 .title{
   height: 64px;
-  background: pink;
+  /* background: pink; */
 }
  .content {
    flex: 1;
-   background: yellow;
+   /* background: yellow; */
    overflow-y: auto;
 }

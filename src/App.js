@@ -20,27 +20,33 @@ const Title = (props) => {
 const TitleAndContent = (props) => {
   return(
     <div className={props.className}>
-    <Title className={styles.title} name={props.match.params.id}/>
-    <Content className={styles.content} component={props.match.params.id}/>
+      <Title className={styles.title} name={props.match.params.id}/>
+      <Content className={styles.content} component={props.match.params.id}/>
     </div>
   )
 }
 
 const Content = (props) => {
+  let component;
   switch (props.component) {
     case "about":
-      return <About/>;
+      component =  <About/>;
       break;
     case "education":
-      return <Education/>;
+      component =  <Education/>;
       break;
     case "experience":
-      return <Experience/>;
+      component =  <Experience/>;
       break;
     case "more":
-      return <More/>;
+      component =  <More/>;
       break;
   }
+  return (
+    <div className={props.className}>
+      {component}
+    </div>
+    )
 }
 
 class App extends Component {

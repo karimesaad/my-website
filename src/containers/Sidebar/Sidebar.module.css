@@ -1,12 +1,53 @@
 .sidebar {
   flex: 1;
-  background: green;
   min-width: 260px;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  font-family: 'Playfair Display', serif;
+}
+
+.name{
+  padding-top: 40px;
+  padding-bottom: 30px;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.pictureCropper {
+  flex: 1;
+  margin-top: 15px;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: #733a46;
+  border-style: solid;
+  border-width: 4px;
+}
+
+.picture {
+  height: 100%;
+  width: auto;
+}
+
+.linksAndBio {
+  text-align: center;
+  flex: 3;
 }
 
 .linkTitle {
+  color: gray;
+}
+
+.bio {
+  background: #dcdcdc30;
   text-align: center;
+  color: black;
+  line-height: 1.5;
+  padding: 25px;
+  margin-bottom: 20px;
 }

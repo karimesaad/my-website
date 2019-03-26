@@ -1,82 +1,62 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import logo from './logo.svg';
 import styles from './App.module.css';
 import Sidebar from './containers/Sidebar';
-
+import About from './components/About';
+import Education from './components/Education';
+import Experience from './components/Experience';
+import More from './components/More';
 
 // import Content from 'containers/Content';
 
 const Title = (props) => {
   return (
-    <div className={styles.title}>
-    {props.name}
-    </div>)
+    <div className={props.className}>{props.name}</div>
+  )
 }
 
-const TitleAndContent = ({match}) => {
-  return (
-    <div className={styles.titleAndContent}>
-      <Title name={match.params.id}></Title>
-      <Content component={match.params.id}></Content>
+const TitleAndContent = (props) => {
+  return(
+    <div className={props.className}>
+    <Title className={styles.title} name={props.match.params.id}/>
+    <Content className={styles.content} component={props.match.params.id}/>
     </div>
   )
 }
 
 const Content = (props) => {
-  let component;
-  switch(props.component){
-    case 'about':
-      component = <About></About>
-    break;
-    case 'experience':
-      component = <Experience></Experience>
-    break;
-    case 'education':
-      component = <Education></Education>
-    break;
-    case 'more':
-      component = <More></More>
-    break;
+  switch (props.component) {
+    case "about":
+      return <About/>;
+      break;
+    case "education":
+      return <Education/>;
+      break;
+    case "experience":
+      return <Experience/>;
+      break;
+    case "more":
+      return <More/>;
+      break;
   }
-  return (
-    <div className={styles.content}>
-      {component}
-    </div>
-  )
 }
-
-const About = (props) => {
-  return (<div className={styles.about}></div>)
-}
-
-const Education = (props) => {
-  return (<div className={styles.education}></div>)
-}
-
-const Experience = (props) => {
-  return (<div className={styles.experience}></div>)
-}
-
-const More = (props) => {
-  return (<div className={styles.more}></div>)
-}
-
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div className={styles.App}>
-          <Sidebar></Sidebar>
+          <Sidebar/>
           <Route
             path="/:id"
-            render={props => <TitleAndContent {...props} />}
-          />
+            render={props => (<TitleAndContent className={styles.titleAndContent} {...props}/>)}
+          >
+          </Route>
         </div>
       </Router>
-    );
+    )
   }
 }
 

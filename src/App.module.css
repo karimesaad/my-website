@@ -21,23 +21,3 @@
    background: yellow;
    overflow-y: auto;
 }
-
-.about {
-  height: 500px;
-  background: purple;
-}
-
-.education {
-  height: 330px;
-  background: blue;
-}
-
-.experience {
-  height: 830px;
-  background: black;
-}
-
-.more {
-  height: 430px;
-  background: brown;
-}
